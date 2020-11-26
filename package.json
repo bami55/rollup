@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "rollup": "^2.33.3"
+  },
+  "scripts": {
+    "build": "rollup --config",
+    "bundle": "rollup src/main.js -o bundle.js -f cjs"
+  }
+}
