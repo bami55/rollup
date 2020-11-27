@@ -1,5 +1,8 @@
 {
+  "name": "rollup-tutorial",
+  "version": "1.0.0",
   "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "rollup": "^2.33.3"
   },
   "scripts": {

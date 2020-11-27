@@ -136,3 +136,65 @@ rollup --config rollup.config.prod.js
 
 ### ③プラグインの使用
 
+JSONファイルからデータをインポートできる `@rollup/plugin-json`を使用した例
+
+```sh
+npm install --save-dev @rollup/plugin-json
+or
+yarn add -D @rollup/plugin-json
+```
+
+```json
+// package.json
+{
+  "name": "rollup-tutorial",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rollup -c"
+  }
+}
+```
+
+js
+
+```js
+// src/main.js
+import { version } from '../package.json';
+
+export default function () {
+  console.log('version ' + version);
+}
+```
+
+```js
+// rollup.config.js
+import json from '@rollup/plugin-json';
+
+export default {
+  input: 'src/main.js',
+  output: {
+    file: 'bundle.js',
+    format: 'cjs'
+  },
+  plugins: [ json() ]
+};
+```
+
+ビルド結果
+
+```js
+// bundle.js
+'use strict';
+
+var version = "1.0.0";
+
+function main () {
+  console.log('version ' + version);
+}
+
+module.exports = main;
+```
+
+
+
+## ④コード分割
